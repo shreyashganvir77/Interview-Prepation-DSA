@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char, int> umap;
+        int ans = INT_MIN;
+        for(int i=0; i<s.length(); i++){
+            umap[s[i]]++;
+        }
+        
+        for(int i=0; i<s.length(); i++){
+            //cout << umap[s[i]] << " ";
+            if(umap[s[i]]==1){    
+                ans = i;
+                break;
+            }
+        }
+        
+        if(ans<0){
+            return -1;
+        }else{
+            return ans;
+        }
+    }
+};
